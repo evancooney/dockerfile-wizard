@@ -54,7 +54,7 @@ jobs:
 
   test_image:
     docker:
-      - image: $DOCKER_USERNAME/node12-java8-cirleci-custom:0.1
+      - image: $DOCKER_USERNAME/node12-java8-cirleci-custom:v0.1
         environment:
           <<: *image_config
 
