@@ -4,20 +4,20 @@ image_config: &image_config
   # either as project-specific environment variables
   # or as resources in your organization's org-global Context
 
-  IMAGE_NAME: firebase-circleci-custom
+  IMAGE_NAME: node12-java8-cirleci-custom
 
-  IMAGE_TAG: 0.1
+  IMAGE_TAG: 
 
   # NOTE: if you're modifying this config.yml file manually
   # rather than using the included setup script,
   # make sure you also add the values of your IMAGE_NAME & IMAGE_TAG variables
   # to the `test_image` job (line 55)
 
-  LINUX_VERSION: UBUNTU_TRUSTY
+  LINUX_VERSION: DEBIAN_JESSIE
 
   # RUBY_VERSION_NUM: # pick a version from https://cache.ruby-lang.org/pub/ruby
 
-  NODE_VERSION_NUM: 12.12
+  NODE_VERSION_NUM: v12.12.0
 
   # PYTHON_VERSION_NUM: # pick a version from https://python.org/ftp/python
 
@@ -54,7 +54,7 @@ jobs:
 
   test_image:
     docker:
-      - image: $DOCKER_USERNAME/firebase-circleci-custom:0.1
+      - image: $DOCKER_USERNAME/node12-java8-cirleci-custom:
         environment:
           <<: *image_config
 
