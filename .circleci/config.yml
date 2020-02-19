@@ -6,14 +6,14 @@ image_config: &image_config
 
   IMAGE_NAME: node12-java8-circleci
 
-  IMAGE_TAG: 0.3
+  IMAGE_TAG: 0.2
 
   # NOTE: if you're modifying this config.yml file manually
   # rather than using the included setup script,
   # make sure you also add the values of your IMAGE_NAME & IMAGE_TAG variables
   # to the `test_image` job (line 55)
 
-  LINUX_VERSION: UBUNTU_TRUSTY
+  LINUX_VERSION: UBUNTU_XENIAL
 
   # RUBY_VERSION_NUM: # pick a version from https://cache.ruby-lang.org/pub/ruby
 
