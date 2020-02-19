@@ -4,6 +4,14 @@ echo "FROM buildpack-deps:$(awk -F'_' '{print tolower($2)}' <<< $LINUX_VERSION)"
 
 echo "RUN apt-get update"
 
+# install latest c++ 17 compiler
+"RUN apt install build-essential xz-utils curl &&
+curl -SL http://releases.llvm.org/7.0.1/clang+llvm-7.0.1-x86_64-linux-gnu-ubuntu-16.04.tar.xz | tar -xJC . &&
+cp -r clang+llvm-7.0.1-x86_64-linux-gnu-ubuntu-16.04/ /usr/local/clang-7.0.1 &&
+export LD_LIBRARY_PATH=/usr/local/clang-7.0.1/lib:$LD_LIBRARY_PATH &&
+export PATH=/usr/local/clang-7.0.1/bin:$PATH &&
+ldconfig"
+
 if [ ! -e $RUBY_VERSION_NUM ] ; then
     echo "RUN apt-get install -y libssl-dev && wget http://ftp.ruby-lang.org/pub/ruby/$(awk -F'.' '{ print $1"."$2 }' <<< $RUBY_VERSION_NUM)/ruby-$RUBY_VERSION_NUM.tar.gz && \
     tar -xzvf ruby-$RUBY_VERSION_NUM.tar.gz && \
