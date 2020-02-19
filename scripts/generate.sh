@@ -40,15 +40,14 @@ fi
 # fi
 
 if [ $JAVA = "true" ] ; then
-cat << EOF
+echo "RUN
     apt-get update && \\
     apt-get --force-yes -y install software-properties-common python-software-properties && \\
     echo | add-apt-repository -y ppa:webupd8team/java && \\
     apt-get update && \\
     echo debconf shared/accepted-oracle-license-v1-1 select true | debconf-set-selections && \\
     echo debconf shared/accepted-oracle-license-v1-1 seen true | debconf-set-selections && \\
-    apt-get -y install oracle-java8-installer \\
-EOF
+    apt-get -y install oracle-java8-installer"
 fi
 
 if [ $MYSQL_CLIENT = "true" ] ; then
