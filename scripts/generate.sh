@@ -40,8 +40,7 @@ fi
 # fi
 
 if [ $JAVA = "true" ] ; then
-echo "RUN
-    apt-get update && \\
+echo "RUN apt-get update && \\
     apt-get --force-yes -y install software-properties-common python-software-properties && \\
     echo | add-apt-repository -y ppa:webupd8team/java && \\
     apt-get update && \\
